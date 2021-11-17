@@ -1,0 +1,38 @@
+docker run -i -t -p 3592:3592 \
+  -v $(pwd)/config:/config \
+  -v $(pwd)/policies:/policies \
+  ghcr.io/cerbos/cerbos:0.10.0 \
+  server --config=/config/conf.yaml
+
+
+
+const { Cerbos } = require("cerbos");
+
+const cerbos = new Cerbos({
+  hostname: "http://localhost:3592",
+});
+
+ const permissions = await cerbos.check({
+    principal: {
+      id: req.user.id,
+      roles: req.user.roles,
+      attr: req.user,
+    },
+    resource: {
+      kind: "article",
+      instances: {
+        [article.id]: {
+          attr: article,
+        },
+      },
+    },
+    actions: ["update"],
+  });
+
+
+  if (!permissions.isAuthorized(article.id, "update")) {
+    res.status(403).json({ error: "Forbidden" });
+  } else {
+    await updateArticle(article, req.body);
+    res.json({ status: "ok", article });
+  }

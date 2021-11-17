@@ -8,6 +8,9 @@ const cerbos = new Cerbos({
 
 const app = express();
 
+// req.user populated by authentication middleware
+// contains ID and list of roles
+// dummy implementation
 app.use((req, res, next) => {
   req.user = {
     id: "user1",
@@ -69,7 +72,7 @@ app.patch("/article/:id", async (req, res) => {
     res.status(403).json({ error: "Forbidden" });
   } else {
     await updateArticle(req.params.id, req.body);
-    res.json({ status: "ok" });
+    res.json({ status: "ok", article });
   }
 });
 

@@ -2,7 +2,6 @@
 server:
   httpListenAddr: ":3592"
 storage:
-  driver: "disk" # Valid values are "disk" or "git"
-  disk: # Only required if "driver" is "disk"
+  driver: "disk"
+  disk:
     directory: /policies
-    watchForChanges: true
