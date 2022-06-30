@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "cerbos": "^0.0.5",
+    "@cerbos/grpc": "^0.5.2",
     "express": "^4.17.1"
   },
   "scripts": {

@@ -1,12 +1,12 @@
 // This is dummy storage for articles. You would normally call your data store.
 const articles = {
   1: {
-    id: 1,
+    id: "1",
     title: "Article 1",
     owner: "user1",
   },
   2: {
-    id: 2,
+    id: "2",
     title: "Article 2",
     owner: "user2",
   },

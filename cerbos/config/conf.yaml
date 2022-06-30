@@ -1,6 +1,7 @@
 ---
 server:
   httpListenAddr: ":3592"
+  grpcListenAddr: ":3593"
 storage:
   driver: "disk"
   disk:
