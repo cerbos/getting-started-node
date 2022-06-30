@@ -1,8 +1,8 @@
 const express = require("express");
-const { GRPC } = require("@cerbos/grpc");
+const { GRPC: Cerbos } = require("@cerbos/grpc");
 const { deleteArticle, getArticle, updateArticle } = require("./articles");
 
-const cerbos = new GRPC("localhost:3593", {
+const cerbos = new Cerbos("localhost:3593", {
   tls: false,
 });
 
